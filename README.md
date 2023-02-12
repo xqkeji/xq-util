@@ -128,6 +128,23 @@ children(testElement,'#t1')
 
 ```
 
+#### parent
+
+返回HTML元素匹配选择器的一个父元素
+
+代码示例
+
+```ts
+
+import {
+    parent
+} from 'xq-util'
+
+const testElement=document.querySelector('#test')
+//返回#test下匹配#t1选择器的一个父元素
+parent(testElement,'#t1')
+
+```
 #### parents
 
 返回HTML元素匹配选择器的父元素数组

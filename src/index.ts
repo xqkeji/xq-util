@@ -93,7 +93,20 @@ const domReady = (callBack: () => void): void => {
   const children = (element: Element, selector: string) => {
 	return [...element.children].flat().filter(child => child.matches(selector))
   }
-  
+  const parent=(element: HTMLElement, selector: string): HTMLElement | null=> {
+    let ancestor = element.parentNode
+    while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== 3) {
+      // @ts-ignore
+      // eslint-disable-next-line  @typescript-eslint/no-unsafe-call
+      if (ancestor.matches(selector)) {
+        return ancestor as HTMLElement
+      }
+
+      ancestor = ancestor.parentNode
+    }
+
+    return null
+  }
   const parents = (element: Element, selector: string) => {
 	const parents = []
 	let ancestor = element.parentNode as Element
@@ -204,6 +217,7 @@ const domReady = (callBack: () => void): void => {
 	slideDown,
 	slideToggle,
 	children,
+	parent,
 	parents,
 	prev,
 	next,
