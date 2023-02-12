@@ -1,5 +1,5 @@
 /*!
- * xq-util v1.0.1 (http://xqkeji.cn/)
+ * xq-util v1.0.3 (http://xqkeji.cn/)
  * Author xqkeji.cn
  * LICENSE SSPL-1.0
  * Copyright 2023 xqkeji.cn
@@ -84,6 +84,16 @@ const slideToggle = (target, duration = 500) => {
 const children = (element, selector) => {
   return [...element.children].flat().filter((child) => child.matches(selector));
 };
+const parent = (element, selector) => {
+  let ancestor = element.parentNode;
+  while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== 3) {
+    if (ancestor.matches(selector)) {
+      return ancestor;
+    }
+    ancestor = ancestor.parentNode;
+  }
+  return null;
+};
 const parents = (element, selector) => {
   const parents2 = [];
   let ancestor = element.parentNode;
@@ -161,4 +171,4 @@ const jsonFormData = (form) => {
   return object;
 };
 
-export { after, append, before, children, domReady, find, findOne, jsonFormData, next, parents, prepend, prev, slideDown, slideToggle, slideUp, windowReady };
+export { after, append, before, children, domReady, find, findOne, jsonFormData, next, parent, parents, prepend, prev, slideDown, slideToggle, slideUp, windowReady };
