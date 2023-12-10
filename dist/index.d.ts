@@ -1,5 +1,5 @@
 /*!
- * xq-util v1.0.3 (http://xqkeji.cn/)
+ * xq-util v1.0.4 (http://xqkeji.cn/)
  * Author xqkeji.cn
  * LICENSE SSPL-1.0
  * Copyright 2023 xqkeji.cn
@@ -21,5 +21,6 @@ declare const after: (element: Element, dom: string) => void;
 declare const find: (selector: string, element?: HTMLElement) => Element[];
 declare const findOne: (selector: string, element?: HTMLElement) => Element | null;
 declare const jsonFormData: (form: HTMLFormElement) => {};
+declare const setUrlParam: (url: string, key: string, value: string | number | null) => string;
 
-export { after, append, before, children, domReady, find, findOne, jsonFormData, next, parent, parents, prepend, prev, slideDown, slideToggle, slideUp, windowReady };
+export { after, append, before, children, domReady, find, findOne, jsonFormData, next, parent, parents, prepend, prev, setUrlParam, slideDown, slideToggle, slideUp, windowReady };

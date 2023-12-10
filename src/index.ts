@@ -95,7 +95,7 @@ const domReady = (callBack: () => void): void => {
   }
   const parent=(element: HTMLElement, selector: string): HTMLElement | null=> {
     let ancestor = element.parentNode
-    while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== 3) {
+    while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE) {
       // @ts-ignore
       // eslint-disable-next-line  @typescript-eslint/no-unsafe-call
       if (ancestor.matches(selector)) {
@@ -110,7 +110,7 @@ const domReady = (callBack: () => void): void => {
   const parents = (element: Element, selector: string) => {
 	const parents = []
 	let ancestor = element.parentNode as Element
-	while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== 3) {
+	while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE) {
 	  if (ancestor.matches(selector)) {
 		parents.push(ancestor)
 	  }
@@ -209,7 +209,20 @@ const domReady = (callBack: () => void): void => {
   
 	return object
   }
-  
+  const setUrlParam=(url:string, key:string, value:string|number|null):string=> {
+	if(value==undefined||value==null) {
+		 return url
+	}
+	let re = new RegExp("([?&])" + key + "=.*?(&|$)", "i")
+	let separator = url.indexOf('?') !== -1 ? "&" : "?"
+	if (url.match(re)) {
+		return url.replace(re, '$1' + key + "=" + value + '$2')
+	}
+	else {
+		return url + separator + key + "=" + value
+	}
+  }
+
   export {
 	domReady,
 	windowReady,
@@ -227,6 +240,7 @@ const domReady = (callBack: () => void): void => {
 	before,
 	after,
 	prepend,
-	jsonFormData
+	jsonFormData,
+	setUrlParam
   }
   

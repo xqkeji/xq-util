@@ -1,7 +1,7 @@
 {
 	"name": "xq-util",
-	"version": "1.0.3",
-	"description": "前端程序的一个公共方法库，包括：domReady、children、append、find、jsonFormData等公共方法。",
+	"version": "1.0.4",
+	"description": "前端程序的一个公共方法库，包括：domReady、children、append、find、jsonFormData、setUrlParam等公共方法。",
 	"type": "module",
 	"files": [
 		"dist"

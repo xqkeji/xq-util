@@ -1,5 +1,5 @@
 /*!
- * xq-util v1.0.3 (http://xqkeji.cn/)
+ * xq-util v1.0.4 (http://xqkeji.cn/)
  * Author xqkeji.cn
  * LICENSE SSPL-1.0
  * Copyright 2023 xqkeji.cn
@@ -86,7 +86,7 @@ const children = (element, selector) => {
 };
 const parent = (element, selector) => {
   let ancestor = element.parentNode;
-  while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== 3) {
+  while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE) {
     if (ancestor.matches(selector)) {
       return ancestor;
     }
@@ -97,7 +97,7 @@ const parent = (element, selector) => {
 const parents = (element, selector) => {
   const parents2 = [];
   let ancestor = element.parentNode;
-  while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== 3) {
+  while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE) {
     if (ancestor.matches(selector)) {
       parents2.push(ancestor);
     }
@@ -170,5 +170,17 @@ const jsonFormData = (form) => {
   }
   return object;
 };
+const setUrlParam = (url, key, value) => {
+  if (value == void 0 || value == null) {
+    return url;
+  }
+  let re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  let separator = url.indexOf("?") !== -1 ? "&" : "?";
+  if (url.match(re)) {
+    return url.replace(re, "$1" + key + "=" + value + "$2");
+  } else {
+    return url + separator + key + "=" + value;
+  }
+};
 
-export { after, append, before, children, domReady, find, findOne, jsonFormData, next, parent, parents, prepend, prev, slideDown, slideToggle, slideUp, windowReady };
+export { after, append, before, children, domReady, find, findOne, jsonFormData, next, parent, parents, prepend, prev, setUrlParam, slideDown, slideToggle, slideUp, windowReady };
