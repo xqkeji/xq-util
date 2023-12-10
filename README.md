@@ -1,6 +1,6 @@
 # xq-util
 
-前端程序的一个公共方法库，包括：domReady、children、append、find、jsonFormData等公共方法。
+前端程序的一个公共方法库，包括：domReady、children、append、find、jsonFormData、setUrlParam等公共方法。
 
 ## 安装
 ```bash
