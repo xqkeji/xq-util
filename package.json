@@ -1,6 +1,6 @@
 {
   "name": "xq-util",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "前端程序的一个公共方法库，包括：domReady、children、append、find、jsonFormData、setUrlParam等公共方法。",
   "type": "module",
   "files": [
@@ -36,7 +36,7 @@
   "license": "Apache-2.0",
   "homepage": "http://xqkeji.cn/",
   "devDependencies": {
-    "@types/node": "^18.13.0",
+    "@types/node": "^20.19.0",
     "typescript": "^4.9.5",
     "unbuild": "^1.1.1",
     "xq-banner": "^1.0.8"
