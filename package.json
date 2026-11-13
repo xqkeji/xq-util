@@ -33,7 +33,7 @@
     "jsonFormData"
   ],
   "author": "xqkeji.cn",
-  "license": "Apache-2.0",
+  "license": "AGPL-3.0",
   "homepage": "http://xqkeji.cn/",
   "devDependencies": {
     "@types/node": "^20.19.0",
