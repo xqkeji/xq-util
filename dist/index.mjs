@@ -1,7 +1,7 @@
 /*!
  * xq-util v1.0.4 (http://xqkeji.cn/)
  * Author xqkeji.cn
- * LICENSE AGPL-3.0-only
+ * LICENSE AGPL-3.0-only OR LicenseRef-xqkeji-commercial
  * Copyright 2023 xqkeji.cn
  */
  const domReady = (callBack) => {
